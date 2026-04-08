@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -79,10 +78,7 @@
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.3);
   }
-  .target-scope-ring { border: 2px solid rgba(0, 47, 108, 0.1); }
-  .target-line { background: linear-gradient(to bottom, transparent, #001b44, transparent); }
-  .target-line-h { background: linear-gradient(to right, transparent, #001b44, transparent); }
-
+  /* Removed target-scope-ring, target-line, target-line-h */
   /* Smooth value transition */
   .calc-value { transition: opacity 0.15s ease; }
   .calc-value.updating { opacity: 0.4; }
@@ -166,11 +162,10 @@
           <div class="absolute inset-0 rounded-full border border-outline-variant/20 scale-125"></div>
           <div class="absolute inset-0 rounded-full border border-outline-variant/30 scale-110"></div>
 
-          <!-- Main Target Circle -->
-          <div class="absolute inset-0 rounded-full target-scope-ring bg-white shadow-2xl flex items-center justify-center overflow-hidden">
+          <!-- Main Target Circle (without target lines) -->
+          <div class="absolute inset-0 rounded-full bg-white shadow-2xl flex items-center justify-center overflow-hidden">
             <div class="absolute inset-0 bg-tertiary-fixed/10 opacity-100"></div>
-            <div class="absolute w-px h-full target-line left-1/2 -translate-x-1/2"></div>
-            <div class="absolute h-px w-full target-line-h top-1/2 -translate-y-1/2"></div>
+            <!-- target-line and target-line-h removed -->
 
             <!-- Central Result -->
             <div class="relative z-20 glass-card p-10 rounded-full w-80 h-80 flex flex-col items-center justify-center text-center shadow-lg border border-white/50">
@@ -469,7 +464,7 @@
     // Price bar
     priceBarEl.style.width = Math.min((homePrice / 1_000_000) * 100, 100) + '%';
 
-    // Target badge
+    // Target badge (still shows target status)
     const TARGET = 2750;
     if (total <= TARGET) {
       badgeEl.innerHTML = `<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span><span class="text-xs font-bold uppercase">Target Achieved</span>`;
